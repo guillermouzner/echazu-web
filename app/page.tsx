@@ -39,7 +39,9 @@ const Home = async () => {
         className="bg-gray-800 mx-auto flex flex-col items-center max-w-3xl mt-10 px-4 lg:px-0"
         id="nosotros"
       >
-        <h1 className="text-emerald-600 font-semibold capitalize">nuestra historia</h1>
+        <h1 className="text-emerald-600 font-semibold capitalize whitespace-nowrap">
+          nuestra historia
+        </h1>
         <hr className="w-full border-2 border-emerald-600 mt-2 mb-8" />
         <p className="text-white text-sm">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum totam cumque repellat ea
