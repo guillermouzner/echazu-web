@@ -32,11 +32,11 @@ const Home = async () => {
 
   return (
     <>
-      <div className="h-[300px] max-w-full">
-        <Slider posts={posts} />
+      <div className="h-[115px] sm:h-[450px] max-w-full">
+        <Slider />
       </div>
       <div
-        className="bg-gray-800 mx-auto flex flex-col items-center max-w-3xl mt-10 px-4 lg:px-0"
+        className="bg-gray-800 mx-auto flex flex-col items-center max-w-3xl mt-3 sm:mt-10 px-4 lg:px-0"
         id="nosotros"
       >
         <h1 className="text-emerald-600 font-semibold capitalize whitespace-nowrap">

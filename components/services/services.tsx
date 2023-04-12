@@ -17,6 +17,8 @@ const Services: React.FC<Props> = ({posts}) => {
   const allowedDomains = [
     "https://scontent.ftuc1-1.fna.fbcdn.net",
     "https://scontent.ftuc1-2.fna.fbcdn.net",
+    "https://flic.kr",
+    "https://live.staticflickr.com/",
   ];
 
   const services = filteredArray

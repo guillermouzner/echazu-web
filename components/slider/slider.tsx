@@ -1,74 +1,64 @@
 "use client";
-import Image from "next/image";
-import {useState} from "react";
-import {BsChevronCompactLeft, BsChevronCompactRight} from "react-icons/bs";
-import {RxDotFilled} from "react-icons/rx";
+import Image, {StaticImageData} from "next/image";
+import {useEffect, useState} from "react";
+// import {BsChevronCompactLeft, BsChevronCompactRight} from "react-icons/bs";
 
-export interface Data {
-  imagenSlider: string;
-  tituloServicio: string;
-  descripcionServicioCorta: string;
-  descripcionServicioLarga: string;
-  imagenServicio: string;
-}
+import slider1 from "@/public/slider1.jpg";
+import slider2 from "@/public/slider2.jpg";
+import slider3 from "@/public/slider3.jpg";
+import slider4 from "@/public/slider4.jpg";
+import slider5 from "@/public/slider5.jpg";
+import slider6 from "@/public/slider6.jpg";
 
-interface Props {
-  posts: Data[];
-}
+const Slider: React.FC = () => {
+  const images = [slider1, slider2, slider3, slider4, slider5, slider6];
 
-const Slider: React.FC<Props> = ({posts}) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(images[0]);
+  const [loaded, setLoaded] = useState(false);
 
-  const slides = posts.map(({imagenSlider}) => imagenSlider);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      selectNewImage(selectedIndex, images);
+    }, 2000);
 
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    return () => clearInterval(interval);
+  });
 
-    setCurrentIndex(newIndex);
+  const selectNewImage = (index: number, images: StaticImageData[], next = true) => {
+    setLoaded(false);
+    setTimeout(() => {
+      const condition = next ? selectedIndex < images.length - 1 : selectedIndex > 0;
+      const nextIndex = next
+        ? condition
+          ? selectedIndex + 1
+          : 0
+        : condition
+        ? selectedIndex - 1
+        : images.length - 1;
+
+      setSelectedImage(images[nextIndex]);
+      setSelectedIndex(nextIndex);
+    }, 1000);
   };
 
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+  // const previous = () => {
+  //   selectNewImage(selectedIndex, images, false);
+  // };
 
-    setCurrentIndex(newIndex);
-  };
+  // const next = () => {
+  //   selectNewImage(selectedIndex, images);
+  // };
 
-  const goToSlide = (slideIndex: number) => {
-    setCurrentIndex(slideIndex);
-  };
-
-  // console.log(arrayImagenesSlider);
-  // style={{backgroundImage: `url(${slides[currentIndex]})`}}
   return (
-    <div className="max-w-full h-[300px] w-full m-auto relative group ">
-      <div
-        className="w-full h-full transition-all duration-500"
-        style={{
-          backgroundImage: `url(${slides[currentIndex]})`,
-          backgroundSize: "cover",
-        }}
-      />
-
-      {/* Left Arrow */}
-      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-        <BsChevronCompactLeft size={30} onClick={prevSlide} />
-      </div>
-      {/* Right Arrow */}
-      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-        <BsChevronCompactRight size={30} onClick={nextSlide} />
-      </div>
-      <div className="flex top-4 justify-center py-0">
-        {slides.map((slide, slideIndex) => (
-          <div
-            key={slideIndex}
-            className="text-2xl cursor-pointer"
-            onClick={() => goToSlide(slideIndex)}
-          >
-            <RxDotFilled />
-          </div>
-        ))}
+    <div className="max-w-full w-full m-auto relative group ">
+      <div className={`w-full h-full`}>
+        <Image
+          alt="Slider"
+          className={`${loaded ? "opacity-100" : "opacity-0"} transition duration-1000`}
+          src={selectedImage}
+          onLoad={() => setLoaded(true)}
+        />
       </div>
     </div>
   );
