@@ -36,7 +36,7 @@ const Home = async () => {
         <Slider />
       </div>
       <div
-        className="bg-gray-800 mx-auto flex flex-col items-center max-w-3xl mt-3 sm:mt-10 px-4 lg:px-0"
+        className="bg-gray-800 mx-auto flex flex-col items-center max-w-3xl mt-5 sm:mt-8 px-4 lg:px-0"
         id="nosotros"
       >
         <h1 className="text-emerald-600 font-semibold capitalize whitespace-nowrap">
