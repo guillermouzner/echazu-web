@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {AspectRatio} from "@/components/ui/aspect-ratio";
 import {Data} from "@/lib/utils";
@@ -67,7 +68,9 @@ const Services: React.FC<Props> = ({posts}) => {
       </div>
       <div className="flex flex-col items-center justify-center mt-4 gap-3">
         <p className="">Para ver más y detallados nuestros servicios:</p>
-        <button className="border rounded-md px-4 py-1 border-emerald-700">Tocá aquí</button>
+        <button className="border rounded-md px-4 py-1 border-emerald-700">
+          <Link href={"/servicios"}>Tocá aquí</Link>
+        </button>
       </div>
     </div>
   );
