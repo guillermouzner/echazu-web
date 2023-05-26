@@ -12,7 +12,7 @@ import {Data} from "@/lib/utils";
 const fetchPosts = async () => {
   const response = await fetch(
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSc2HcWNLctcQqcBgKiP6UKnZ7UJqxscwJjuFxk4oDFOzIOQ68q9DVjyFv3KcyhAB8bynpnmO_Zam7Y/pub?output=csv",
-    {next: {revalidate: 10}},
+    {next: {revalidate: 86400}},
   );
 
   const csvData = await response.text();
