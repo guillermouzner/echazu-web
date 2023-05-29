@@ -42,17 +42,29 @@ const Navbar: React.FC<Props> = ({links}) => {
 
         <ul className="hidden sm:flex flex-row justify-center items-center gap-8 mr-2">
           <li>
-            <a href="https://twitter.com" rel="noopener noreferrer" target="_blank">
+            <a
+              href="https://www.facebook.com/corralonechazu/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <Image alt="fb" src={fb} />
             </a>
           </li>
           <li>
-            <a href="https://twitter.com" rel="noopener noreferrer" target="_blank">
+            <a
+              href="https://www.instagram.com/corralonechazu/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <Image alt="ig" src={ig} />
             </a>
           </li>
           <li>
-            <a href="https://twitter.com" rel="noopener noreferrer" target="_blank">
+            <a
+              href="mailto:corralonechazu_adm@hotmail.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <Image alt="gmail" src={gmail} />
             </a>
           </li>
