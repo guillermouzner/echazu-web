@@ -47,7 +47,7 @@ const Servicios = async () => {
     .filter(Boolean);
 
   return (
-    <div className="max-w-md sm:max-w-xl flex flex-col mx-auto gap-4 mb-8">
+    <div className="max-w-md sm:max-w-xl flex flex-col mx-auto gap-4 mb-8 text-white">
       {services.map((obj, i) => (
         <div key={i}>
           <h1 className="text-xl items-center text-center m-3 capitalize">{obj?.tituloServicio}</h1>
