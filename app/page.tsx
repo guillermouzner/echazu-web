@@ -31,12 +31,12 @@ const Home = async () => {
   const posts = await fetchPosts();
 
   return (
-    <>
+    <div className="text-white">
       <div className="h-[115px] sm:h-[450px] max-w-full">
         <Slider />
       </div>
       <div
-        className="bg-gray-800 mx-auto flex flex-col max-w-3xl mt-5 sm:mt-8 px-4 lg:px-0"
+        className="bg-gray-800 mx-auto flex flex-col max-w-3xl mt-10 sm:-mt-44 lg:mt-40 px-4 lg:px-0"
         id="nosotros"
       >
         <h1 className="text-emerald-600 font-semibold capitalize text-center whitespace-nowrap text-base lg:text-xl">
@@ -207,7 +207,7 @@ const Home = async () => {
         {/* componente contacto */}
         <ContactoForm />
       </div>
-    </>
+    </div>
   );
 };
 
